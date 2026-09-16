@@ -63,3 +63,7 @@ export function formatPostDate(date: Date, locale: Locale): string {
 function toIntlLocaleTag(locale: Locale): string {
   return locale === 'es' ? 'es-MX' : 'en-US';
 }
+
+export function toOpenGraphLocale(locale: Locale): string {
+  return toIntlLocaleTag(locale).replace('-', '_');
+}
