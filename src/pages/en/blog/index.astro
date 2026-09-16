@@ -21,7 +21,13 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
 </BaseLayout>
 
 <style>
+  h1 {
+    padding-top: 0.08em;
+  }
+
   .lede {
+    max-width: var(--measure);
+    margin-bottom: 4rem;
     color: var(--fg-muted);
   }
 </style>

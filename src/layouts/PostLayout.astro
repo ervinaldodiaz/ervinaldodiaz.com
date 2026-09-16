@@ -46,28 +46,56 @@ const t = translate(locale);
 </BaseLayout>
 
 <style>
+  article > h1 {
+    padding-top: 0.08em;
+    max-width: 34rem;
+  }
+
   .meta {
-    margin: 0 0 2.5rem;
+    max-width: none;
+    margin: 1.5rem 0 4rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    font-family: var(--font-ui);
-    font-size: 0.75rem;
+    gap: 0.75rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: var(--meta-size);
     text-transform: var(--meta-transform);
     letter-spacing: var(--meta-tracking);
     color: var(--fg-muted);
   }
 
-  .updated,
-  .back {
+  .updated {
+    max-width: none;
     margin-top: 3rem;
-    font-family: var(--font-ui);
-    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    font-size: var(--meta-size);
+    letter-spacing: var(--meta-tracking);
+    text-transform: var(--meta-transform);
     color: var(--fg-muted);
   }
 
   .back {
-    padding-top: 2rem;
+    max-width: none;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
     border-top: 1px solid var(--rule);
+  }
+
+  .back a {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    padding: 0.6rem 1.1rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: var(--meta-size);
+    letter-spacing: var(--meta-tracking);
+    text-transform: var(--meta-transform);
+  }
+
+  .back a:hover {
+    background: var(--accent);
+    color: var(--ink);
   }
 </style>

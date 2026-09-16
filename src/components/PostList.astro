@@ -40,32 +40,57 @@ const t = translate(locale);
     list-style: none;
     margin: 0;
     padding: 0;
+    counter-reset: entry;
   }
 
-  .post-list li {
-    padding: 1.75rem 0;
+  .post-list > li {
+    counter-increment: entry;
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 0 1.5rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule);
+    transition: background-color 120ms ease-out;
+  }
+
+  .post-list > li:last-child {
     border-bottom: 1px solid var(--rule);
   }
 
-  .post-list li:last-child {
-    border-bottom: none;
+  /* The index number is ornament: the link text already names the post. */
+  .post-list > li::before {
+    content: counter(entry, decimal-leading-zero);
+    grid-row: 1 / span 3;
+    font-family: var(--font-mono);
+    font-size: var(--meta-size);
+    letter-spacing: var(--meta-tracking);
+    color: var(--accent);
+    padding-top: 0.6rem;
   }
 
   .post-list > li > a {
-    font-size: 1.375rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-stretch: var(--display-stretch);
+    font-size: clamp(1.5rem, 3.4vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.1;
     letter-spacing: -0.015em;
+    text-transform: uppercase;
     text-decoration: none;
     color: var(--fg);
   }
 
-  .post-list > li > a:hover {
+  .post-list > li:hover > a {
     color: var(--accent);
-    text-decoration: underline;
+  }
+
+  .post-list > li:hover {
+    background-color: var(--bg-lift);
   }
 
   .excerpt {
-    margin: 0.5rem 0 0.75rem;
+    margin: 0.75rem 0 1rem;
+    max-width: var(--measure);
     color: var(--fg-muted);
   }
 
@@ -73,27 +98,42 @@ const t = translate(locale);
     margin: 0;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.75rem;
-    font-family: var(--font-ui);
-    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: var(--meta-size);
     text-transform: var(--meta-transform);
     letter-spacing: var(--meta-tracking);
     color: var(--fg-muted);
   }
 
-  .tags::before {
-    content: '·';
-    margin-right: 0.75rem;
-  }
-
   .draft {
-    color: var(--accent);
-    font-weight: 600;
+    background: var(--signal);
+    color: var(--ink);
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
   }
 
   .empty {
     color: var(--fg-muted);
+  }
+
+  @media (max-width: 34rem) {
+    .post-list > li {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .post-list > li::before {
+      grid-row: auto;
+      padding-top: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .post-list > li {
+      transition: none;
+    }
   }
 </style>

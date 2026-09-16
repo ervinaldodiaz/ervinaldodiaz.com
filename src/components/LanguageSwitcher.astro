@@ -14,4 +14,34 @@ const targetUrl: string = getRelativeLocaleUrl(target, translationPath ?? 'blog'
 const t = translate(locale);
 ---
 
-<a href={targetUrl} hreflang={target} lang={target}>{t.readInOtherLanguage}</a>
+<a
+  class="language-switcher"
+  href={targetUrl}
+  hreflang={target}
+  lang={target}
+  aria-label={t.readInOtherLanguage}
+>
+  {t.otherLanguageShort}
+</a>
+
+<style>
+  .language-switcher {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--ink);
+    border: 1px solid var(--accent);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: var(--meta-size);
+    font-weight: 700;
+    letter-spacing: var(--meta-tracking);
+    text-transform: var(--meta-transform);
+    line-height: 1;
+  }
+
+  .language-switcher:hover {
+    background: transparent;
+    color: var(--accent);
+  }
+</style>
