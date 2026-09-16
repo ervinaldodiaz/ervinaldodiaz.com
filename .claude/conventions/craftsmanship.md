@@ -113,6 +113,18 @@ Legend: **MUST** = a violation blocks the change · **SHOULD** = raise it, autho
   interactivity, and only on that page. Prefer `client:visible` over `client:load`.
 - **PERF-3** MUST: styles live in the component's `<style>` block; only true globals go in
   `BaseLayout.astro`'s `is:global` block.
+- **PERF-4** MUST: no web fonts. The theme uses system faces only, so a page costs no font request
+  and never renders invisible text while one loads.
+
+## A11Y — Contrast
+
+- **A11Y-1** MUST: body text clears 4.5:1 against the background, and so does **secondary text** —
+  dates, tags, captions. Small dim text on a near-black background is where this fails: the muted
+  grey chosen for this theme measured 3.53:1 and had to be lightened. Compute the ratio, never
+  eyeball it.
+- **A11Y-2** MUST: decorative layers (grain, vignette, glow) sit behind the text in a `::before` or
+  `::after` at negative `z-index`, never over it. They may tint the background; they may not reduce
+  the contrast of anything being read.
 
 ## TEST — Verification
 
