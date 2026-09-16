@@ -19,6 +19,7 @@ type UiStrings = {
   readonly feedLabel: string;
   readonly otherLanguageShort: string;
   readonly scrollCue: string;
+  readonly elsewhere: string;
 };
 
 export const ui: Readonly<Record<Locale, UiStrings>> = {
@@ -37,6 +38,7 @@ export const ui: Readonly<Record<Locale, UiStrings>> = {
     feedLabel: 'RSS',
     otherLanguageShort: 'EN',
     scrollCue: 'Desliza',
+    elsewhere: 'En otros lados',
   },
   en: {
     siteTitle: 'Ervin Díaz',
@@ -53,5 +55,6 @@ export const ui: Readonly<Record<Locale, UiStrings>> = {
     feedLabel: 'RSS',
     otherLanguageShort: 'ES',
     scrollCue: 'Scroll',
+    elsewhere: 'Elsewhere',
   },
 };
