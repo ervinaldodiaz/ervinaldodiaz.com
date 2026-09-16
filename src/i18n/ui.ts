@@ -7,6 +7,7 @@ export const DEFAULT_LOCALE: Locale = 'es';
 type UiStrings = {
   readonly siteTitle: string;
   readonly siteDescription: string;
+  readonly tagline: string;
   readonly navHome: string;
   readonly navWriting: string;
   readonly writingTitle: string;
@@ -16,12 +17,15 @@ type UiStrings = {
   readonly updatedOn: string;
   readonly backToWriting: string;
   readonly feedLabel: string;
+  readonly otherLanguageShort: string;
+  readonly scrollCue: string;
 };
 
 export const ui: Readonly<Record<Locale, UiStrings>> = {
   es: {
     siteTitle: 'Ervin Díaz',
     siteDescription: 'Pensamientos y notas técnicas sobre construir software que aguante.',
+    tagline: 'Software que aguanta',
     navHome: 'Inicio',
     navWriting: 'Escritos',
     writingTitle: 'Escritos',
@@ -31,10 +35,13 @@ export const ui: Readonly<Record<Locale, UiStrings>> = {
     updatedOn: 'Actualizado el',
     backToWriting: 'Volver a Escritos',
     feedLabel: 'RSS',
+    otherLanguageShort: 'EN',
+    scrollCue: 'Desliza',
   },
   en: {
     siteTitle: 'Ervin Díaz',
     siteDescription: 'Thoughts and technical notes on building software that holds up.',
+    tagline: 'Software that holds up',
     navHome: 'Home',
     navWriting: 'Writing',
     writingTitle: 'Writing',
@@ -44,5 +51,7 @@ export const ui: Readonly<Record<Locale, UiStrings>> = {
     updatedOn: 'Updated on',
     backToWriting: 'Back to Writing',
     feedLabel: 'RSS',
+    otherLanguageShort: 'ES',
+    scrollCue: 'Scroll',
   },
 };

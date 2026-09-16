@@ -10,16 +10,59 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
 ---
 
 <BaseLayout locale={locale} title={t.siteTitle} description={t.siteDescription} translationPath="">
-  <h1>{t.siteTitle}</h1>
-  <p class="lede">{t.siteDescription}</p>
+  <section class="hero">
+    <h1>{t.siteTitle}</h1>
+    <p class="lede">{t.siteDescription}</p>
+    <p class="scroll-cue">{t.scrollCue}</p>
+  </section>
 
   <h2>{t.writingTitle}</h2>
   <PostList locale={locale} posts={posts} />
 </BaseLayout>
 
 <style>
+  .hero {
+    padding-block: 1rem 5rem;
+  }
+
+  /* A stepped extrusion stands in for the reference's cast shadow, in plain CSS. */
+  .hero h1 {
+    font-size: clamp(3rem, 12vw, 7.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    padding-top: 0.12em;
+    margin: 0 0 2rem;
+    text-shadow:
+      0.02em 0.02em 0 var(--rule),
+      0.04em 0.04em 0 var(--rule),
+      0.06em 0.06em 0 var(--rule),
+      0.08em 0.08em 0 var(--rule),
+      0.1em 0.1em 0 var(--rule),
+      0.12em 0.12em 0 var(--rule),
+      0.14em 0.14em 0 var(--rule),
+      0.16em 0.16em 0 var(--rule),
+      0.18em 0.18em 0 var(--rule),
+      0.2em 0.2em 0 var(--rule);
+  }
+
   .lede {
+    max-width: var(--measure);
     font-size: 1.25rem;
     color: var(--fg-muted);
+    margin: 0;
+  }
+
+  .scroll-cue {
+    margin: 4rem 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--meta-size);
+    letter-spacing: var(--meta-tracking);
+    text-transform: var(--meta-transform);
+    color: var(--fg-muted);
+  }
+
+  .scroll-cue::after {
+    content: ' ↓';
+    color: var(--signal);
   }
 </style>

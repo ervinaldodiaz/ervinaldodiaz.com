@@ -1,84 +1,96 @@
 :root {
-  --measure: 60ch;
-  --bg: #030706;
-  --fg: #cfdcd6;
-  --fg-muted: #7c8c85;
-  --accent: #7fd4b0;
-  --rule: #101a16;
+  --measure: 64ch;
+  --poster: 78rem;
 
-  --font-body: ui-serif, 'Iowan Old Style', Georgia, serif;
+  --bg: #0b0810;
+  --bg-lift: #17101f;
+  --fg: #efe9f5;
+  --fg-muted: #a99bb8;
+  --accent: #c9a2ec;
+  --signal: #e9e44f;
+  --ink: #0b0810;
+  --rule: #241a30;
+
+  --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-display: var(--font-body);
-  --font-ui: ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, 'Cascadia Mono', Consolas, monospace;
 
-  --body-size: 1.125rem;
-  --body-leading: 2;
-  --h1-size: 2.625rem;
-  --h1-weight: 400;
-  --h1-tracking: -0.01em;
+  --body-size: 1.0625rem;
+  --body-leading: 1.75;
+  --h1-size: clamp(2.25rem, 6vw, 3.75rem);
+  --h1-weight: 800;
+  --h1-tracking: -0.02em;
+  --display-stretch: 87.5%;
+
+  --meta-size: 0.6875rem;
   --meta-transform: uppercase;
   --meta-tracking: 0.22em;
 }
 
+/* The diagonal field, the lavender bloom above it and a sparse starfield. */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 55% 45% at 50% 12%, #0b2a20, transparent 70%),
-    radial-gradient(ellipse 120% 90% at 50% 50%, transparent 35%, #000000 100%);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1.2px 1.2px at 18% 24%, #d8c9ea 50%, transparent 50%),
+    radial-gradient(1px 1px at 62% 12%, #c3b3d8 50%, transparent 50%),
+    radial-gradient(1.4px 1.4px at 84% 58%, #e6dcf2 50%, transparent 50%),
+    radial-gradient(1px 1px at 33% 76%, #b9a8cf 50%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 22% 8%, rgb(201 162 236 / 10%), transparent 70%),
+    linear-gradient(107deg, var(--bg-lift) 0 46%, var(--bg) 46.2% 100%);
+  background-size:
+    220px 220px,
+    340px 340px,
+    280px 280px,
+    400px 400px,
+    100% 100%,
+    100% 100%;
 }
 
+/* Film grain, kept under the text so it tints the field without dimming a word of it. */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.32;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-main { padding: 7rem 0 8rem; }
-
-h1 {
-  font-weight: 400;
-  margin-bottom: 2.5rem;
-  color: #e8f2ed;
-}
-
-h2 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--accent);
-  margin: 5rem 0 1.25rem;
-}
-
-.site-header {
-  border-bottom: none;
-  padding: 2.5rem 0 0;
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
   text-transform: uppercase;
 }
 
-.site-name { letter-spacing: 0.22em; }
-.site-header nav { gap: 2.25rem; }
-
-.meta {
-  margin-bottom: 4.5rem !important;
-  font-size: 0.6875rem !important;
-  gap: 1.75rem !important;
+h2 {
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  letter-spacing: 0.01em;
+  color: var(--accent);
+  margin: 4rem 0 1.5rem;
 }
 
-p { margin: 0 0 2rem; }
+h3 {
+  font-size: 1.125rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
 
-.post-list > li { border-bottom: none; padding: 3rem 0; }
-.post-list > li > a { font-weight: 400; font-size: 1.5rem; }
-.excerpt { margin-top: 0.75rem !important; }
-
-.site-footer { border-top: 1px solid var(--rule); font-size: 0.6875rem; letter-spacing: 0.22em; text-transform: uppercase; }
+/* Post prose keeps the reading measure even though the chrome runs poster-wide. */
+article > p,
+article > ul,
+article > ol,
+article > blockquote,
+article > pre,
+article > h2,
+article > h3 {
+  max-width: var(--measure);
+}
