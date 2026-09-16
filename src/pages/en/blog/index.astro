@@ -17,7 +17,7 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
   translationPath="blog"
 >
   <section class="page-head">
-    <div class="astronaut-slot"><Astronaut flipped /></div>
+    <div class="astronaut-slot"><Astronaut /></div>
     <h1>{t.writingTitle}</h1>
     <p class="lede">{t.writingIntro}</p>
   </section>
@@ -29,9 +29,9 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
     position: relative;
   }
 
-  /* Decorative only, and the copy is stacked above it. */
   .astronaut-slot {
     position: absolute;
+    scale: -1 1;
     z-index: 0;
     top: 50%;
     right: 4%;
