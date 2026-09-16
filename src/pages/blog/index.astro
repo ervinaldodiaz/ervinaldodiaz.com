@@ -13,6 +13,7 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
   locale={locale}
   title={`${t.writingTitle} — ${t.siteTitle}`}
   description={t.writingIntro}
+  translationPath="blog"
 >
   <h1>{t.writingTitle}</h1>
   <p class="lede">{t.writingIntro}</p>

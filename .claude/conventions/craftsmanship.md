@@ -99,6 +99,12 @@ Legend: **MUST** = a violation blocks the change · **SHOULD** = raise it, autho
   midnight, so formatting it in a negative-offset local timezone shows the previous day. The
   published date is a date, not an instant, and must read the same everywhere.
 
+- **I18N-8** MUST: every page emits reciprocal `<link rel="alternate" hreflang>` tags for both
+  locales plus `x-default`, built from `translationOf`. The sitemap integration pairs locales by
+  equivalent URL path, which cannot work here because slugs are localized — `por-que-astro` and
+  `why-astro` are the same post. The head tags are the only complete source of that pairing, so a
+  page rendered without `translationPath` silently loses it.
+
 ## PERF — What ships to the reader
 
 - **PERF-1** MUST: a content page ships **zero JavaScript**. `npm run build` followed by

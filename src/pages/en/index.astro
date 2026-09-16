@@ -9,7 +9,7 @@ const t = translate(locale);
 const posts: BlogPost[] = await listPostsByLocale(locale);
 ---
 
-<BaseLayout locale={locale} title={t.siteTitle} description={t.siteDescription}>
+<BaseLayout locale={locale} title={t.siteTitle} description={t.siteDescription} translationPath="">
   <h1>{t.siteTitle}</h1>
   <p class="lede">{t.siteDescription}</p>
 
