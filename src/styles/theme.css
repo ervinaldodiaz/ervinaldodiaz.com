@@ -1,10 +1,10 @@
 :root {
   --measure: 60ch;
-  --bg: #050505;
-  --fg: #ded7cc;
-  --fg-muted: #857e73;
-  --accent: #f0b775;
-  --rule: #1a1815;
+  --bg: #030706;
+  --fg: #cfdcd6;
+  --fg-muted: #7c8c85;
+  --accent: #7fd4b0;
+  --rule: #101a16;
 
   --font-body: ui-serif, 'Iowan Old Style', Georgia, serif;
   --font-display: var(--font-body);
@@ -27,7 +27,7 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 45% at 50% 12%, #2a1d10, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 50% 12%, #0b2a20, transparent 70%),
     radial-gradient(ellipse 120% 90% at 50% 50%, transparent 35%, #000000 100%);
 }
 
@@ -47,7 +47,7 @@ main { padding: 7rem 0 8rem; }
 h1 {
   font-weight: 400;
   margin-bottom: 2.5rem;
-  color: #f4efe6;
+  color: #e8f2ed;
 }
 
 h2 {
