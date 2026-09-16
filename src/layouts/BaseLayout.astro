@@ -75,7 +75,13 @@ const defaultLocaleUrl: URL | null = locale === DEFAULT_LOCALE ? selfUrl : trans
         <p>
           &copy; {new Date().getFullYear()} {t.siteTitle}
         </p>
-        <a href={feedUrl}>{t.feedLabel}</a>
+        <nav aria-label={t.elsewhere}>
+          <a href="https://github.com/ervinaldodiaz">GitHub</a>
+          <a href="https://mx.linkedin.com/in/ervin-aldo-d%C3%ADaz-jim%C3%A9nez-2b4202270">
+            LinkedIn
+          </a>
+          <a href={feedUrl}>{t.feedLabel}</a>
+        </nav>
       </div>
     </footer>
 
@@ -211,6 +217,12 @@ const defaultLocaleUrl: URL | null = locale === DEFAULT_LOCALE ? selfUrl : trans
 
       .site-footer p {
         margin: 0;
+      }
+
+      .site-footer nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.75rem;
       }
 
       h1,
