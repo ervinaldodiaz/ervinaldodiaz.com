@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostList from '../../components/PostList.astro';
+import Astronaut from '../../components/Astronaut.astro';
 import { listPostsByLocale, translate } from '../../i18n/utils';
 import type { BlogPost } from '../../i18n/utils';
 
@@ -11,6 +12,7 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
 
 <BaseLayout locale={locale} title={t.siteTitle} description={t.siteDescription} translationPath="">
   <section class="hero">
+    <div class="astronaut-slot"><Astronaut /></div>
     <h1>{t.siteTitle}</h1>
     <p class="lede">{t.siteDescription}</p>
     <p class="scroll-cue">{t.scrollCue}</p>
@@ -22,7 +24,26 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
 
 <style>
   .hero {
+    position: relative;
     padding-block: 1rem 5rem;
+  }
+
+  /* Decorative only, and it never sits under running text: the copy is stacked above it. */
+  .astronaut-slot {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    right: 2%;
+    width: min(17rem, 24vw);
+    translate: 0 -50%;
+    pointer-events: none;
+  }
+
+  .hero h1,
+  .hero .lede,
+  .hero .scroll-cue {
+    position: relative;
+    z-index: 1;
   }
 
   /* A stepped extrusion stands in for the reference's cast shadow, in plain CSS. */
@@ -64,5 +85,12 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
   .scroll-cue::after {
     content: ' ↓';
     color: var(--signal);
+  }
+
+  /* Below this the hero has no free column, so the figure would cross the copy. */
+  @media (max-width: 60rem) {
+    .astronaut-slot {
+      display: none;
+    }
   }
 </style>

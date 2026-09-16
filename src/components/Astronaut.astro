@@ -1,0 +1,64 @@
+---
+interface Props {
+  flipped?: boolean;
+}
+
+const { flipped = false } = Astro.props;
+---
+
+<svg
+  class:list={['astronaut', { flipped }]}
+  viewBox="0 0 200 280"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="3"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d="M100 258 C 130 272, 168 274, 198 262" stroke-dasharray="5 9" opacity="0.5"></path>
+  <rect x="60" y="92" width="80" height="66" rx="16" opacity="0.5"></rect>
+  <rect x="-11" y="-2" width="22" height="50" rx="11" transform="translate(72,112) rotate(38)"></rect>
+  <rect x="-10" y="-2" width="20" height="44" rx="10" transform="translate(42,150) rotate(14)"></rect>
+  <rect x="-11" y="-2" width="22" height="50" rx="11" transform="translate(128,112) rotate(-38)"></rect>
+  <rect x="-10" y="-2" width="20" height="44" rx="10" transform="translate(158,150) rotate(-14)"></rect>
+  <rect x="-12" y="-2" width="24" height="54" rx="12" transform="translate(85,170) rotate(10)"></rect>
+  <rect x="-11" y="-2" width="22" height="48" rx="11" transform="translate(76,223) rotate(26)"></rect>
+  <rect x="-12" y="-2" width="24" height="54" rx="12" transform="translate(115,170) rotate(-10)"></rect>
+  <rect x="-11" y="-2" width="22" height="48" rx="11" transform="translate(124,223) rotate(-26)"></rect>
+  <rect x="68" y="96" width="64" height="80" rx="24" fill="var(--bg)"></rect>
+  <rect x="85" y="118" width="30" height="22" rx="5" opacity="0.7"></rect>
+  <circle cx="100" cy="58" r="38" fill="var(--bg)"></circle>
+  <path d="M80 46 a 26 26 0 0 1 27 -12" opacity="0.7"></path>
+</svg>
+
+<style>
+  .astronaut {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--accent);
+    animation: drift 16s ease-in-out infinite alternate;
+  }
+
+  /* `scale` is its own property, so the drift transform still composes on top. */
+  .flipped {
+    scale: -1 1;
+  }
+
+  @keyframes drift {
+    from {
+      transform: translateY(-0.7rem) rotate(-3deg);
+    }
+    to {
+      transform: translateY(0.7rem) rotate(3deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .astronaut {
+      animation: none;
+    }
+  }
+</style>
