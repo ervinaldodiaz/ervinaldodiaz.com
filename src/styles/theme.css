@@ -36,17 +36,24 @@ body::before {
   pointer-events: none;
   background-color: var(--bg);
   background-image:
-    radial-gradient(1.2px 1.2px at 18% 24%, #d8c9ea 50%, transparent 50%),
-    radial-gradient(1px 1px at 62% 12%, #c3b3d8 50%, transparent 50%),
-    radial-gradient(1.4px 1.4px at 84% 58%, #e6dcf2 50%, transparent 50%),
-    radial-gradient(1px 1px at 33% 76%, #b9a8cf 50%, transparent 50%),
+    radial-gradient(1.7px 1.7px at 12% 18%, var(--fg), transparent 55%),
+    radial-gradient(1.6px 1.6px at 72% 62%, var(--fg), transparent 55%),
+    radial-gradient(1.2px 1.2px at 18% 24%, #d8c9ea, transparent 55%),
+    radial-gradient(1.3px 1.3px at 62% 12%, #c3b3d8, transparent 55%),
+    radial-gradient(1.1px 1.1px at 84% 58%, #e6dcf2, transparent 55%),
+    radial-gradient(0.9px 0.9px at 33% 76%, #b9a8cf, transparent 55%),
+    radial-gradient(0.8px 0.8px at 47% 41%, #a99bb8, transparent 55%),
     radial-gradient(ellipse 70% 50% at 22% 8%, rgb(201 162 236 / 10%), transparent 70%),
     linear-gradient(107deg, var(--bg-lift) 0 46%, var(--bg) 46.2% 100%);
+  /* Deliberately non-multiple tile sizes, so the layers never line up into a grid. */
   background-size:
-    220px 220px,
-    340px 340px,
-    280px 280px,
-    400px 400px,
+    430px 430px,
+    610px 610px,
+    223px 223px,
+    347px 347px,
+    281px 281px,
+    401px 401px,
+    533px 533px,
     100% 100%,
     100% 100%;
 }

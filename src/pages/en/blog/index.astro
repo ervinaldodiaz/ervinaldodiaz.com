@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Astronaut from '../../../components/Astronaut.astro';
 import PostList from '../../../components/PostList.astro';
 import { listPostsByLocale, translate } from '../../../i18n/utils';
 import type { BlogPost } from '../../../i18n/utils';
@@ -15,12 +16,37 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
   description={t.writingIntro}
   translationPath="blog"
 >
-  <h1>{t.writingTitle}</h1>
-  <p class="lede">{t.writingIntro}</p>
+  <section class="page-head">
+    <div class="astronaut-slot"><Astronaut flipped /></div>
+    <h1>{t.writingTitle}</h1>
+    <p class="lede">{t.writingIntro}</p>
+  </section>
   <PostList locale={locale} posts={posts} />
 </BaseLayout>
 
 <style>
+  .page-head {
+    position: relative;
+  }
+
+  /* Decorative only, and the copy is stacked above it. */
+  .astronaut-slot {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    right: 4%;
+    width: min(9rem, 14vw);
+    translate: 0 -50%;
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  h1,
+  .lede {
+    position: relative;
+    z-index: 1;
+  }
+
   h1 {
     padding-top: 0.08em;
   }
@@ -29,5 +55,11 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
     max-width: var(--measure);
     margin-bottom: 4rem;
     color: var(--fg-muted);
+  }
+
+  @media (max-width: 60rem) {
+    .astronaut-slot {
+      display: none;
+    }
   }
 </style>
