@@ -1,0 +1,17 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { oppositeLocale, translate } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  translationPath?: string;
+}
+
+const { locale, translationPath } = Astro.props;
+const target: Locale = oppositeLocale(locale);
+const targetUrl: string = getRelativeLocaleUrl(target, translationPath ?? 'blog');
+const t = translate(locale);
+---
+
+<a href={targetUrl} hreflang={target} lang={target}>{t.readInOtherLanguage}</a>

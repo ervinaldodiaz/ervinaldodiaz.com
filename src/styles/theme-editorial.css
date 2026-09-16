@@ -1,0 +1,36 @@
+:root {
+  --measure: 66ch;
+  --bg: #fdfbf7;
+  --fg: #221f1a;
+  --fg-muted: #6f6a60;
+  --accent: #9c4221;
+  --rule: #e7e1d6;
+
+  --font-body: ui-serif, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-display: var(--font-body);
+  --font-ui: ui-serif, 'Iowan Old Style', Georgia, serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --body-size: 1.1875rem;
+  --body-leading: 1.75;
+  --h1-size: 2.5rem;
+  --h1-weight: 600;
+  --h1-tracking: -0.015em;
+  --title-transform: none;
+  --meta-transform: none;
+  --meta-tracking: 0.01em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17150f;
+    --fg: #ece7dc;
+    --fg-muted: #9c958a;
+    --accent: #e08a5a;
+    --rule: #2d2a22;
+  }
+}
+
+h1, h2, h3 { font-family: var(--font-display); }
+.site-name { font-size: 1.0625rem; font-style: italic; }
+.post-list > li > a { font-weight: 600; }

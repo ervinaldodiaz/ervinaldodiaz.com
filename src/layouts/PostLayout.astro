@@ -1,0 +1,73 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import BaseLayout from './BaseLayout.astro';
+import { formatPostDate, translate, translationPathOf } from '../i18n/utils';
+import type { BlogPost } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+const locale: Locale = post.data.lang;
+const t = translate(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${post.data.title} — ${t.siteTitle}`}
+  description={post.data.description}
+  translationPath={translationPathOf(post)}
+>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p class="meta">
+      <time datetime={post.data.date.toISOString()}>
+        {formatPostDate(post.data.date, locale)}
+      </time>
+      {post.data.tags.length > 0 && <span>{post.data.tags.join(' · ')}</span>}
+    </p>
+
+    <slot />
+
+    {
+      post.data.updated && (
+        <p class="updated">
+          {t.updatedOn} {formatPostDate(post.data.updated, locale)}
+        </p>
+      )
+    }
+
+    <p class="back">
+      <a href={getRelativeLocaleUrl(locale, 'blog')}>← {t.backToWriting}</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .meta {
+    margin: 0 0 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    text-transform: var(--meta-transform);
+    letter-spacing: var(--meta-tracking);
+    color: var(--fg-muted);
+  }
+
+  .updated,
+  .back {
+    margin-top: 3rem;
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+  }
+
+  .back {
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+</style>

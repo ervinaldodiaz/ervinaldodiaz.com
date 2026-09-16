@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { listPostsByLocale, translate } from '../../i18n/utils';
+import type { BlogPost } from '../../i18n/utils';
+
+const locale = 'en' as const;
+const t = translate(locale);
+const posts: BlogPost[] = await listPostsByLocale(locale);
+---
+
+<BaseLayout locale={locale} title={t.siteTitle} description={t.siteDescription}>
+  <h1>{t.siteTitle}</h1>
+  <p class="lede">{t.siteDescription}</p>
+
+  <h2>{t.writingTitle}</h2>
+  <PostList locale={locale} posts={posts} />
+</BaseLayout>
+
+<style>
+  .lede {
+    font-size: 1.25rem;
+    color: var(--fg-muted);
+  }
+</style>
