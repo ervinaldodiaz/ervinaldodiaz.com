@@ -11,7 +11,6 @@
   --ink: #0b0810;
   --rule: #241a30;
 
-  /* This direction is single-family: every role resolves to the same monospaced stack. */
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Courier New', monospace;
   --font-body: var(--font-mono);
   --font-display: var(--font-mono);
@@ -27,7 +26,6 @@
   --meta-tracking: 0.22em;
 }
 
-/* The diagonal field, the lavender bloom above it and a sparse starfield. */
 body::before {
   content: '';
   position: fixed;
@@ -45,7 +43,6 @@ body::before {
     radial-gradient(0.8px 0.8px at 47% 41%, #a99bb8, transparent 55%),
     radial-gradient(ellipse 70% 50% at 22% 8%, rgb(201 162 236 / 10%), transparent 70%),
     linear-gradient(107deg, var(--bg-lift) 0 46%, var(--bg) 46.2% 100%);
-  /* Deliberately non-multiple tile sizes, so the layers never line up into a grid. */
   background-size:
     430px 430px,
     610px 610px,
@@ -58,7 +55,6 @@ body::before {
     100% 100%;
 }
 
-/* Film grain, kept under the text so it tints the field without dimming a word of it. */
 body::after {
   content: '';
   position: fixed;
@@ -90,7 +86,6 @@ h3 {
   color: var(--accent);
 }
 
-/* Post prose keeps the reading measure even though the chrome runs poster-wide. */
 article > p,
 article > ul,
 article > ol,

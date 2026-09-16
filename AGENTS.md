@@ -34,6 +34,30 @@ The ones that bite most often:
 - A translated post sets `translationOf` on **both** sides, or the switcher strands the reader.
 - Content pages ship zero JavaScript. `client:*` islands are per-page and deliberate.
 
+## Design decisions
+
+Rationale that `CMT-1` keeps out of the source:
+
+- **One type family.** The poster direction is monospaced for every role, so `--font-body` and
+  `--font-display` both alias `--font-mono`. The display weight is 700 because monospaced faces ship
+  regular and bold only — 800 was being synthesised. `font-stretch` was dropped with the sans: a
+  monospaced face has no width axis.
+- **Only prose is measured in `ch`.** The unit is the zero-advance of *the element's own* font, so it
+  sizes tiny monospaced rules to a stub and makes a display heading wrap differently per locale.
+- **The diagonal splits two dark tones**, not the reference's lavender field, so no text ever sits on
+  a surface that would drop it under the `A11Y-1` floor. Measured against the lifted side with the
+  glow composited over it (`#291f34`): body 13.17:1, secondary 6.02:1, accent 7.36:1, signal 11.70:1.
+  The filled button inverts the pair — ink on lavender — at 9.34:1.
+- **Starfield tile sizes are deliberately non-multiples** of one another, or the layers line up into a
+  visible grid.
+- **The astronaut is inline SVG**, not a linked file, so it inherits the palette through
+  `currentColor` and follows a colour swap instead of drifting out of it the way a baked PNG would.
+  It is decorative, carries `aria-hidden`, and sits in its own positioned slot in a region with no
+  running text, with the copy stacked above it — so it stays out of the fixed backdrop and the
+  measured contrast still describes every surface a word is read on. Below `60rem` the hero has no
+  free column and the figure would cross the copy, so it is hidden and the stars carry the theme.
+- **The favicon is filled, not line-art.** At 16px a stroke of the drawing's weight disappears.
+
 ## Content
 
 Posts are Markdown in `src/content/blog/`, one flat folder, filename = URL slug. The frontmatter

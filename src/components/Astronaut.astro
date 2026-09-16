@@ -1,13 +1,5 @@
----
-interface Props {
-  flipped?: boolean;
-}
-
-const { flipped = false } = Astro.props;
----
-
 <svg
-  class:list={['astronaut', { flipped }]}
+  class="astronaut"
   viewBox="0 0 200 280"
   fill="none"
   stroke="currentColor"
@@ -40,11 +32,6 @@ const { flipped = false } = Astro.props;
     height: auto;
     color: var(--accent);
     animation: drift 16s ease-in-out infinite alternate;
-  }
-
-  /* `scale` is its own property, so the drift transform still composes on top. */
-  .flipped {
-    scale: -1 1;
   }
 
   @keyframes drift {

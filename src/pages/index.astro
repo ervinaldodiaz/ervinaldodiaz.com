@@ -28,7 +28,6 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
     padding-block: 1rem 5rem;
   }
 
-  /* Decorative only, and it never sits under running text: the copy is stacked above it. */
   .astronaut-slot {
     position: absolute;
     z-index: 0;
@@ -46,7 +45,6 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
     z-index: 1;
   }
 
-  /* A stepped extrusion stands in for the reference's cast shadow, in plain CSS. */
   .hero h1 {
     font-size: clamp(2.5rem, 9vw, 5.5rem);
     line-height: 1.02;
@@ -87,7 +85,6 @@ const posts: BlogPost[] = await listPostsByLocale(locale);
     color: var(--signal);
   }
 
-  /* Below this the hero has no free column, so the figure would cross the copy. */
   @media (max-width: 60rem) {
     .astronaut-slot {
       display: none;
