@@ -24,8 +24,8 @@ type UiStrings = {
 export const ui: Readonly<Record<Locale, UiStrings>> = {
   es: {
     siteTitle: 'Ervin Díaz',
-    siteDescription: 'Pensamientos y notas técnicas sobre construir software que aguante.',
-    tagline: 'Software que aguanta',
+    siteDescription: 'Pensamientos y notas técnicas de un ingeniero de software.',
+    tagline: 'Hola Mundo!',
     navHome: 'Inicio',
     navWriting: 'Escritos',
     writingTitle: 'Escritos',
@@ -40,8 +40,8 @@ export const ui: Readonly<Record<Locale, UiStrings>> = {
   },
   en: {
     siteTitle: 'Ervin Díaz',
-    siteDescription: 'Thoughts and technical notes on building software that holds up.',
-    tagline: 'Software that holds up',
+    siteDescription: 'Thoughts and technical notes from a software engineer.',
+    tagline: 'Hello World!',
     navHome: 'Home',
     navWriting: 'Writing',
     writingTitle: 'Writing',
