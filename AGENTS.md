@@ -34,6 +34,16 @@ The ones that bite most often:
 - A translated post sets `translationOf` on **both** sides, or the switcher strands the reader.
 - Content pages ship zero JavaScript. `client:*` islands are per-page and deliberate.
 
+## Branching
+
+`main` is protected and deploys. Nothing reaches it except through a pull request — the protection
+includes administrators, so a direct push is refused for the owner too, and force pushes and branch
+deletion are blocked. Required approvals are **0** on purpose: GitHub forbids approving your own pull
+request, so any higher number would make a solo change impossible to merge.
+
+Work lands on `dev`. Feature branches follow `GIT-5` and merge into `dev`; publishing is a pull
+request from `dev` into `main`, which is what fires the deploy.
+
 ## Design decisions
 
 Rationale that `CMT-1` keeps out of the source:
