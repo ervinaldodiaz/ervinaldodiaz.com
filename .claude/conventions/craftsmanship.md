@@ -1,4 +1,4 @@
-# Blog — Clean Code & Project Conventions
+# Project Conventions
 
 The contract this code must satisfy. Every rule has a stable id so a review can cite it
 (`TYP-1`, `I18N-4`, `PERF-1`). `AGENTS.md` stays the entry point for *how to work in this repo*;
