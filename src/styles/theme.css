@@ -11,16 +11,16 @@
   --ink: #0b0810;
   --rule: #241a30;
 
-  --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: var(--font-body);
-  --font-mono: ui-monospace, 'SF Mono', Menlo, 'Cascadia Mono', Consolas, monospace;
+  /* This direction is single-family: every role resolves to the same monospaced stack. */
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Courier New', monospace;
+  --font-body: var(--font-mono);
+  --font-display: var(--font-mono);
 
-  --body-size: 1.0625rem;
+  --body-size: 1rem;
   --body-leading: 1.75;
-  --h1-size: clamp(2.25rem, 6vw, 3.75rem);
-  --h1-weight: 800;
-  --h1-tracking: -0.02em;
-  --display-stretch: 87.5%;
+  --h1-size: clamp(2rem, 5vw, 3.25rem);
+  --h1-weight: 700;
+  --h1-tracking: -0.03em;
 
   --meta-size: 0.6875rem;
   --meta-transform: uppercase;
@@ -67,7 +67,6 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
   text-transform: uppercase;
 }
 
