@@ -1,6 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import '../styles/theme.css';
+import Astronaut from '../components/Astronaut.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import { oppositeLocale, toOpenGraphLocale, translate } from '../i18n/utils';
 import { DEFAULT_LOCALE } from '../i18n/ui';
@@ -75,6 +76,7 @@ const defaultLocaleUrl: URL | null = locale === DEFAULT_LOCALE ? selfUrl : trans
         <p>
           &copy; {new Date().getFullYear()} {t.siteTitle}
         </p>
+        <div class="footer-astronaut"><Astronaut /></div>
         <nav aria-label={t.elsewhere}>
           <a href="https://github.com/ervinaldodiaz">GitHub</a>
           <a href="https://mx.linkedin.com/in/ervin-aldo-d%C3%ADaz-jim%C3%A9nez-2b4202270">
@@ -217,6 +219,12 @@ const defaultLocaleUrl: URL | null = locale === DEFAULT_LOCALE ? selfUrl : trans
 
       .site-footer p {
         margin: 0;
+      }
+
+      .footer-astronaut {
+        flex: 0 0 auto;
+        width: 3.25rem;
+        opacity: 0.8;
       }
 
       .site-footer nav {
