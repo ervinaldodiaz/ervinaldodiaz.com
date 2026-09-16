@@ -15,6 +15,7 @@ type UiStrings = {
   readonly noPostsYet: string;
   readonly updatedOn: string;
   readonly backToWriting: string;
+  readonly feedLabel: string;
 };
 
 export const ui: Readonly<Record<Locale, UiStrings>> = {
@@ -29,6 +30,7 @@ export const ui: Readonly<Record<Locale, UiStrings>> = {
     noPostsYet: 'Todavía no hay nada publicado aquí.',
     updatedOn: 'Actualizado el',
     backToWriting: 'Volver a Escritos',
+    feedLabel: 'RSS',
   },
   en: {
     siteTitle: 'Ervin Díaz',
@@ -41,5 +43,6 @@ export const ui: Readonly<Record<Locale, UiStrings>> = {
     noPostsYet: 'Nothing published here yet.',
     updatedOn: 'Updated on',
     backToWriting: 'Back to Writing',
+    feedLabel: 'RSS',
   },
 };

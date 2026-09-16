@@ -16,6 +16,7 @@ const { locale, title, description, translationPath } = Astro.props;
 const t = translate(locale);
 const homeUrl: string = getRelativeLocaleUrl(locale, '');
 const writingUrl: string = getRelativeLocaleUrl(locale, 'blog');
+const feedUrl: string = `${getRelativeLocaleUrl(locale, '')}rss.xml`;
 ---
 
 <!doctype html>
@@ -30,6 +31,7 @@ const writingUrl: string = getRelativeLocaleUrl(locale, 'blog');
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <link rel="alternate" type="application/rss+xml" title={t.siteTitle} href={feedUrl} />
   </head>
   <body>
     <header class="site-header">
@@ -45,7 +47,9 @@ const writingUrl: string = getRelativeLocaleUrl(locale, 'blog');
     </main>
 
     <footer class="site-footer">
-      <p>&copy; {new Date().getFullYear()} {t.siteTitle}</p>
+      <p>
+        &copy; {new Date().getFullYear()} {t.siteTitle} &middot; <a href={feedUrl}>{t.feedLabel}</a>
+      </p>
     </footer>
 
     <style is:global>
