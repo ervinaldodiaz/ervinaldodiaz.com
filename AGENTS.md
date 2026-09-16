@@ -42,6 +42,19 @@ the build.
 
 Routing is Astro's i18n: Spanish is unprefixed (`/blog/...`), English lives under `/en/blog/...`.
 
+## Deployment
+
+`npm run deploy` builds and deploys from your machine. Cloudflare Workers Builds deploys on every
+push to `main`, and its dashboard settings must stay:
+
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy`
+- **Root directory:** `/`
+
+Do NOT set the deploy command to `npm run deploy` — that script builds first, so CI would build
+twice. The Worker name in `wrangler.jsonc` must match the Worker in the dashboard (`blog`) or the
+build fails. `.node-version` pins the toolchain so CI compiles on the same Node as local.
+
 ## Before committing
 
 ```
