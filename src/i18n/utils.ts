@@ -56,6 +56,7 @@ export function formatPostDate(date: Date, locale: Locale): string {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    timeZone: 'UTC',
   });
 }
 

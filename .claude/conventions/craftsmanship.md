@@ -91,6 +91,9 @@ Legend: **MUST** = a violation blocks the change · **SHOULD** = raise it, autho
 - **I18N-4** MUST: a translated post sets `translationOf` to its counterpart's id on **both** sides.
   A one-way link renders a switcher that strands the reader.
 - **I18N-5** MUST: dates are formatted through `formatPostDate`, never with a hardcoded locale tag.
+- **I18N-6** MUST: post dates render in **UTC**. A bare `YYYY-MM-DD` in frontmatter parses as UTC
+  midnight, so formatting it in a negative-offset local timezone shows the previous day. The
+  published date is a date, not an instant, and must read the same everywhere.
 
 ## PERF — What ships to the reader
 
